@@ -1,0 +1,17 @@
+{
+  "host": "appi.app.cz",
+  "port": 3000,
+  "ssl_key": "./letsencrypt/live/appi.app.cz/privkey.pem",
+  "ssl_cert": "./letsencrypt/live/appi.app.cz/fullchain.pem",
+  "db": {
+    "host": "localhost",
+    "type": "mysql",
+    "dbname": "",
+    "user": "",
+    "password": "",
+    "poolMin": 0,
+    "poolMax": 30,
+    "poolAcquire": 1000000,
+    "poolIdle": 10000
+  }
+}

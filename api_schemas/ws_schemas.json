@@ -1,0 +1,1180 @@
+{
+  "default": {
+    "type": "object",
+    "properties": {
+      "req": {
+        "type": "string"
+      },
+      "result": {
+        "type": "number"
+      },
+      "code": {
+        "type": "string"
+      },
+      "message": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "object"
+          }
+        ]
+      }
+    }
+  },
+  "updateVisits": {
+    "type": "object",
+    "properties": {
+      "req": {
+        "type": "string"
+      },
+      "result": {
+        "type": "number"
+      },
+      "code": {
+        "type": "string"
+      },
+      "message": {
+        "type": "string"
+      }
+    },
+    "request": {
+      "visitor": {
+        "type": "object",
+        "properties": {
+          "visitorID": {
+            "type": "string"
+          },
+          "userAgent": {
+            "type": "string"
+          },
+          "system": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "language": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "screenWidth": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "screenHeight": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "isMobile": {
+            "type": "boolean"
+          }
+        },
+        "required": [ "visitorID", "userAgent", "isMobile" ]
+      },
+      "visit": {
+        "type": "object",
+        "properties": {
+          "uuid": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          },
+          "referer": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "again": {
+            "type": "boolean"
+          },
+          "abShown": {
+            "type": "string"
+          }
+        },
+        "required": [ "uuid", "url", "again" ]
+      }
+    }
+  },
+  "updateForms": {
+    "type": "object",
+    "properties": {
+      "req": {
+        "type": "string"
+      },
+      "result": {
+        "type": "number"
+      },
+      "code": {
+        "type": "string"
+      },
+      "message": {
+        "type": "string"
+      }
+    },
+    "request": {
+      "visitor": {
+        "type": "object",
+        "properties": {
+          "visitorID": {
+            "type": "string"
+          },
+          "userAgent": {
+            "type": "string"
+          },
+          "system": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "language": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "screenWidth": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "screenHeight": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "isMobile": {
+            "type": "boolean"
+          }
+        },
+        "required": [ "visitorID", "userAgent", "isMobile" ]
+      },
+      "form": {
+        "type": "object",
+        "properties": {
+          "uuid": {
+            "type": "string"
+          },
+          "visitorID": {
+            "type": "string"
+          },
+          "form": {
+            "type": "object"
+          },
+          "url": {
+            "type": "string"
+          },
+          "referer": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "geo": {
+            "type": "string"
+          },
+          "country": {
+            "type": "string"
+          }
+        },
+        "required": [ "uuid", "visitorID", "form", "url", "geo" ]
+      }
+    }
+  },
+  "getNDictionary": {
+    "response": {
+      "type": "object",
+      "properties": {
+        "req": {
+          "type": "string"
+        },
+        "result": {
+          "type": "number"
+        },
+        "code": {
+          "type": "string"
+        },
+        "message": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "systemName": {
+                "type": "string"
+              },
+              "cs": {
+                "type": "string"
+              },
+              "sk": {
+                "type": "string"
+              },
+              "en": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "request": {
+      "type": "object",
+      "properties": {
+      },
+      "required": []
+    }
+  },
+  "getCampaigns": {
+    "type": "object",
+    "properties": {
+      "req": {
+        "type": "string"
+      },
+      "result": {
+        "type": "number"
+      },
+      "code": {
+        "type": "string"
+      },
+      "message": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "campaign": {
+              "type": "number"
+            },
+            "ActiveCampaign": {
+              "type": "boolean"
+            },
+            "CampaignAdaptation": {
+              "type": "object",
+              "properties": {
+                "PcDelayBeforeFirstNotify": {
+                  "type": "number"
+                },
+                "PcDelayBetweenNotify": {
+                  "type": "number"
+                },
+                "MobDelayBeforeFirstNotify": {
+                  "type": "number"
+                },
+                "MobDelayBetweenNotify": {
+                  "type": "number"
+                },
+                "HiddenNotifyOnComputer": {
+                  "type": "boolean"
+                },
+                "HiddenNotifyOnMobile": {
+                  "type": "boolean"
+                },
+                "NotifyPosition": {
+                  "type": "string"
+                },
+                "NotifyPositionCenter": {
+                  "type": "boolean"
+                },
+                "NotifyPositionOnMobile": {
+                  "type": "string"
+                },
+                "NotifyPositionOnMobileCenter": {
+                  "type": "boolean"
+                },
+                "PcNotifyShowTime": {
+                  "type": "number"
+                },
+                "MobNotifyShowTime": {
+                  "type": "number"
+                },
+                "ShowUpOnComputer": {
+                  "type": "boolean"
+                },
+                "ShowUpOnMobile": {
+                  "type": "boolean"
+                },
+                "PcSpeedNotify": {
+                  "type": "number"
+                },
+                "MobSpeedNotify": {
+                  "type": "number"
+                }
+              }
+            },
+            "CampaignName": {
+              "type": "string"
+            },
+            "heurekaAPIkey": {
+              "type": "string"
+            },
+            "zboziAPIkey": {
+              "type": "string"
+            },
+            "CaptureRuleObj": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "CapturedUrlsObjIn": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "CapturedUrlsObjOut": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "CaptureRuleReg": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "CapturedUrlsRegIn": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "CapturedUrlsRegOut": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "CaptureRuleStat": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "CapturedUrlsStatIn": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "CapturedUrlsStatOut": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "Heureka": {
+              "type": "object",
+              "properties": {
+                "CycleShowing": {
+                  "type": "boolean"
+                },
+                "ShowRevFromLastDays": {
+                  "type": "number"
+                },
+                "ShowRevStarsHigherThan": {
+                  "type": "number"
+                },
+                "ShowWhenExistMinRev": {
+                  "type": "number"
+                }
+              }
+            },
+            "Zbozi": {
+              "type": "object",
+              "properties": {
+                "ZboziShopActive": {
+                  "type": "boolean"
+                },
+                "ZboziProductActive": {
+                  "type": "boolean"
+                },
+                "CycleShowingShop": {
+                  "type": "boolean"
+                },
+                "CycleShowingProduct": {
+                  "type": "boolean"
+                },
+                "ShowZboziShopFromLastDays": {
+                  "type": "number"
+                },
+                "ShowZboziProductFromLastDays": {
+                  "type": "number"
+                },
+                "ShowZboziStarsHigherThan": {
+                  "type": "number"
+                },
+                "ShowWhenExistMinZboziShop": {
+                  "type": "number"
+                },
+                "ShowWhenExistMinZboziProduct": {
+                  "type": "number"
+                }
+              }
+            },
+            "LastEventsOrders": {
+              "type": "object",
+              "properties": {
+                "CycleShowing": {
+                  "type": "boolean"
+                },
+                "NotificationText": {
+                  "type": "string"
+                },
+                "ShowAnonymEmails": {
+                  "type": "boolean"
+                },
+                "ShowMaxLastOrders": {
+                  "type": "number"
+                },
+                "ShowNewOrdersAfterReloadPage": {
+                  "type": "boolean"
+                },
+                "ShowOrdersFromLastDays": {
+                  "type": "number"
+                },
+                "ShowOwnOrders": {
+                  "type": "boolean"
+                },
+                "ShowWhenExistMinOrders": {
+                  "type": "number"
+                }
+              }
+            },
+            "LastEventsRegistrations": {
+              "type": "object",
+              "properties": {
+                "CycleShowing": {
+                  "type": "boolean"
+                },
+                "NotificationText": {
+                  "type": "string"
+                },
+                "ShowAnonymEmails": {
+                  "type": "boolean"
+                },
+                "ShowMaxLastReg": {
+                  "type": "number"
+                },
+                "ShowOwnReg": {
+                  "type": "boolean"
+                },
+                "ShowRegFromLastDays": {
+                  "type": "number"
+                },
+                "ShowWhenExistMinReg": {
+                  "type": "number"
+                }
+              }
+            },
+            "SelectedNotifications": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "ShownRule": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "ShownUrlsIn": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "ShownUrlsOut": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "Statistics": {
+              "type": "object",
+              "properties": {
+                "CycleShowing": {
+                  "type": "boolean"
+                },
+                "NotificationText": {
+                  "type": "string"
+                },
+                "SelectedStatsVariant": {
+                  "type": "string"
+                },
+                "ShowCountHigherThan": {
+                  "type": "number"
+                },
+                "ShowStatsDomainVisitCount": {
+                  "type": "boolean"
+                },
+                "ShowStatsFromLastDays": {
+                  "type": "number"
+                }
+              }
+            },
+            "VisitCount": {
+              "type": "object",
+              "properties": {
+                "CycleShowing": {
+                  "type": "boolean"
+                },
+                "NotificationText": {
+                  "type": "string"
+                },
+                "ShowCountHigherThan": {
+                  "type": "number"
+                },
+                "ShowDomainVisitCount": {
+                  "type": "boolean"
+                }
+              }
+            },
+            "OwnNotify": {
+              "type": "object",
+              "properties": {
+                "ownNotifyActive": {
+                  "type": "array",
+                  "items": {
+                    "type": "boolean"
+                  }
+                },
+                "CycleShowing": {
+                  "type": "array",
+                  "items": {
+                    "type": "boolean"
+                  }
+                }
+              }
+            },
+            "abTestId": {
+              "type": "number"
+            },
+            "showByAB": {
+              "type": "boolean"
+            },
+            "zeroCampaignAB": {
+              "type": "boolean"
+            },
+            "selectedLanguage": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "serverTime": {
+        "type": "number"
+      },
+      "NextPayDate_ts": {
+        "type": "number"
+      },
+      "a_box": {
+        "type": "string"
+      },
+      "a_cha": {
+        "type": "string"
+      }
+    },
+    "request": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "host": {
+          "type": "string"
+        },
+        "visitorID": {
+          "type": "string"
+        }
+      },
+      "required": [ "id", "host", "visitorID" ]
+    }
+  },
+  "getVisitCount": {
+    "response": {
+      "type": "object",
+      "properties": {
+        "req": {
+          "type": "string"
+        },
+        "result": {
+          "type": "number"
+        },
+        "code": {
+          "type": "string"
+        },
+        "message": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "count": {
+                "type": "number"
+              }
+            }
+          }
+        }
+      }
+    },
+    "request": {
+      "type": "object",
+      "properties": {
+        "campaignID": {
+          "type": "number"
+        }
+      },
+      "required": [ "campaignID" ]
+    }
+  },
+  "getStats": {
+    "response": {
+      "type": "object",
+      "properties": {
+        "req": {
+          "type": "string"
+        },
+        "result": {
+          "type": "number"
+        },
+        "code": {
+          "type": "string"
+        },
+        "message": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "url": {
+                "type": "string"
+              },
+              "count": {
+                "type": "number"
+              }
+            }
+          }
+        }
+      }
+    },
+    "request": {
+      "type": "object",
+      "properties": {
+        "uuid": {
+          "type": "string"
+        },
+        "campaignID": {
+          "type": "number"
+        },
+        "typeRequest": {
+          "type": "string"
+        },
+        "lastDays": {
+          "type": "number"
+        }
+      },
+      "required": [ "uuid", "campaignID", "typeRequest", "lastDays" ]
+    }
+  },
+  "getReviews": {
+    "response": {
+      "type": "object",
+      "properties": {
+        "req": {
+          "type": "string"
+        },
+        "result": {
+          "type": "number"
+        },
+        "code": {
+          "type": "string"
+        },
+        "message": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "number"
+              },
+              "rating": {
+                "type": "number"
+              },
+              "summary": {
+                "type": "string"
+              },
+              "pros": {
+                "type": "string"
+              },
+              "timestamp": {
+                "type": "number"
+              }
+            }
+          }
+        }
+      }
+    },
+    "request": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "campaignID": {
+          "type": "number"
+        },
+        "rating": {
+          "type": "number"
+        },
+        "last": {
+          "type": "number"
+        }
+      },
+      "required": [ "id", "campaignID", "rating", "last" ]
+    }
+  },
+  "getZboziProduct": {
+    "response": {
+      "type": "object",
+      "properties": {
+        "req": {
+          "type": "string"
+        },
+        "result": {
+          "type": "number"
+        },
+        "code": {
+          "type": "string"
+        },
+        "message": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "number"
+              },
+              "rating": {
+                "type": "number"
+              },
+              "positiveComments": {
+                "type": "string"
+              },
+              "productName": {
+                "type": "string"
+              },
+              "timestamp": {
+                "type": "number"
+              }
+            }
+          }
+        }
+      }
+    },
+    "request": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "campaignID": {
+          "type": "number"
+        },
+        "rating": {
+          "type": "number"
+        },
+        "last": {
+          "type": "number"
+        }
+      },
+      "required": [ "id", "campaignID", "rating", "last" ]
+    }
+  },
+  "getZboziShop": {
+    "response": {
+      "type": "object",
+      "properties": {
+        "req": {
+          "type": "string"
+        },
+        "result": {
+          "type": "number"
+        },
+        "code": {
+          "type": "string"
+        },
+        "message": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "number"
+              },
+              "rating": {
+                "type": "number"
+              },
+              "positiveComments": {
+                "type": "string"
+              },
+              "timestamp": {
+                "type": "number"
+              }
+            }
+          }
+        }
+      }
+    },
+    "request": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "campaignID": {
+          "type": "number"
+        },
+        "last": {
+          "type": "number"
+        }
+      },
+      "required": [ "id", "campaignID", "last" ]
+    }
+  },
+  "getOwnNotify": {
+    "response": {
+      "type": "object",
+      "properties": {
+        "req": {
+          "type": "string"
+        },
+        "result": {
+          "type": "number"
+        },
+        "code": {
+          "type": "string"
+        },
+        "OwnNotifyIcons": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "dataResult1": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "dataResult2": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "dataResult3": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "dataResult4": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "dataResult5": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "message": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "OwnNotify1Name": {
+                "type": "string"
+              },
+              "OwnNotify2Name": {
+                "type": "string"
+              },
+              "OwnNotify3Name": {
+                "type": "string"
+              },
+              "OwnNotify4Name": {
+                "type": "string"
+              },
+              "OwnNotify5Name": {
+                "type": "string"
+              },
+              "OwnNotify1Icon": {
+                "type": "string"
+              },
+              "OwnNotify2Icon": {
+                "type": "string"
+              },
+              "OwnNotify3Icon": {
+                "type": "string"
+              },
+              "OwnNotify4Icon": {
+                "type": "string"
+              },
+              "OwnNotify5Icon": {
+                "type": "string"
+              },
+              "ShowLink": {
+                "type": "array",
+                "items": {
+                  "type": "boolean"
+                }
+              },
+              "ShowLinkNewWin": {
+                "type": "array",
+                "items": {
+                  "type": "boolean"
+                }
+              },
+              "ShowLinkBtn": {
+                "type": "array",
+                "items": {
+                  "type": "boolean"
+                }
+              },
+              "CycleShowing": {
+                "type": "array",
+                "items": {
+                  "type": "boolean"
+                }
+              },
+              "ownNotifyActive": {
+                "type": "array",
+                "items": {
+                  "type": "boolean"
+                }
+              },
+              "editorContent": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "zoomIcon": {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                }
+              },
+              "horizontalIcon": {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                }
+              },
+              "verticalIcon": {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                }
+              },
+              "targetUrl": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "linkDescription": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "Iconcolor1": {
+                "type": "string"
+              },
+              "Iconcolor2": {
+                "type": "string"
+              },
+              "Iconcolor3": {
+                "type": "string"
+              },
+              "Iconcolor4": {
+                "type": "string"
+              },
+              "Iconcolor5": {
+                "type": "string"
+              },
+              "IconcolorBtn1": {
+                "type": "string"
+              },
+              "IconcolorBtn2": {
+                "type": "string"
+              },
+              "IconcolorBtn3": {
+                "type": "string"
+              },
+              "IconcolorBtn4": {
+                "type": "string"
+              },
+              "IconcolorBtn5": {
+                "type": "string"
+              },
+              "IconcolorBckBtn1": {
+                "type": "string"
+              },
+              "IconcolorBckBtn2": {
+                "type": "string"
+              },
+              "IconcolorBckBtn3": {
+                "type": "string"
+              },
+              "IconcolorBckBtn4": {
+                "type": "string"
+              },
+              "IconcolorBckBtn5": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "request": {
+      "type": "object",
+      "properties": {
+        "uuid": {
+          "type": "string"
+        },
+        "campaignID": {
+          "type": "number"
+        }
+      },
+      "required": [ "uuid", "campaignID" ]
+    }
+  },
+  "getForms": {
+    "response": {
+      "type": "object",
+      "properties": {
+        "req": {
+          "type": "string"
+        },
+        "result": {
+          "type": "number"
+        },
+        "code": {
+          "type": "string"
+        },
+        "message": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "number"
+              },
+              "name": {
+                "type": "string"
+              },
+              "url": {
+                "type": "string"
+              },
+              "geo": {
+                "type": "string"
+              },
+              "timestamp": {
+                "type": "number"
+              }
+            }
+          }
+        }
+      }
+    },
+    "request": {
+      "type": "object",
+      "properties": {
+        "uuid": {
+          "type": "string"
+        },
+        "campaignID": {
+          "type": "number"
+        },
+        "typeRequest": {
+          "type": "string"
+        },
+        "ownForms": {
+          "type": "boolean"
+        },
+        "visitorID": {
+          "type": "string"
+        },
+        "anonymous": {
+          "type": "boolean"
+        },
+        "lastDays": {
+          "type": "number"
+        },
+        "limitRec": {
+          "type": "number"
+        }
+      },
+      "required": [ "uuid", "campaignID", "typeRequest", "ownForms", "visitorID", "anonymous", "lastDays", "limitRec" ]
+    }
+  }
+}

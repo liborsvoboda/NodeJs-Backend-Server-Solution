@@ -1,0 +1,74 @@
+{
+  "server": {
+    "address": "",
+    "domain": "",
+    "port": 444,
+    "httpsPort": 8080,
+    "ssl": {
+      "key": "./letsencrypt/live/privkey.pem",
+      "cert": "./letsencrypt/live/fullchain.pem"
+    },
+    "db": {
+      "host": "127.0.0.1",
+      "type": "mysql",
+      "dbname": "",
+      "user": "",
+      "password": "",
+      "poolMin": 0,
+      "poolMax": 30,
+      "poolAcquire": 1000000,
+      "poolIdle": 10000,
+      "testUser": false,
+      "realtime": {
+        "user": "",
+        "password": "+",
+        "charset": "utf8mb4",
+        "dateStrings": true
+      }
+    },
+    "bcrypt": {
+      "rounds": 10
+    }
+  },
+"recaptcha": {
+    "key": "",
+    "secret": ""
+  },
+  "smartemailing": {
+    "api": "https://app.smartemailing.cz/api/v3",
+    "username": "",
+    "usertoken": "",
+    "contactLists": [ 2, 3, 4, 5, 13, 14, 15, 16 ],
+    "passwordLists": [ 60, 62 ],
+    "creditLists": [ 95, 96, 97 ],
+    "resetPassword": {
+      "list": 60,
+      "custom": 2,
+      "complete": 62
+    },
+    "timeout": 3000,
+    "retries": 5
+  },
+  "heurekaCZ": "https://www.heureka.cz/direct/dotaznik/export-review.php",
+  "heurekaSK": "https://www.heureka.sk/direct/dotaznik/export-review.php",
+  "zbozi": {
+    "api": "https://api.zbozi.cz/v1/shop/product-reviews",
+    "apiShop": "https://api.zbozi.cz/v1/shop/reviews/",
+    "apiShopRating": "https://api.zbozi.cz/v1/shops/",
+    "timeout": 180000,
+    "retries": 5,
+    "limit": 1000,
+    "limitShop": 100
+  },
+  "shoptet": {
+    "oAuthUrl": "https://xxx.myshoptet.com/action/ApiOAuthServer/token",
+    "timeout": 10000,
+    "oId": "",
+    "ContentType": "application/vnd.shoptet.v1.0",
+    "oSecret": "",
+    "tokenUrl": "https://xxx.myshoptet.com/action/ApiOAuthServer/getAccessToken",
+    "redirectUrl": "https://appi.app.cz:8080/installShoptet",
+    "templateUrl": "https://api.myshoptet.com/api/template-include",
+    "pixelScriptUrl": "https://app.app.cz/js/app.min.js"
+  }
+}

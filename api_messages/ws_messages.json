@@ -1,0 +1,28 @@
+{
+  "update": {
+    "ok": {
+      "result": 1,
+      "code": "update-ok",
+      "message": "Update success"
+    },
+    "error": {
+      "result": 0,
+      "code": "update-error",
+      "message": "Update failed"
+    }
+  },
+  "get": {
+    "error": {
+      "result": 0,
+      "code": "get-error",
+      "message": "Can't get data"
+    }
+  },
+  "request": {
+    "error": {
+      "result": 0,
+      "code": "request-error",
+      "message": "Incorrect request format"
+    }
+  }
+}
